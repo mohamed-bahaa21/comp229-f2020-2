@@ -1,3 +1,10 @@
+/*
+    File Name: books.js
+    Student Name: Kristi Goxhaj
+    StudentID: 301147545
+    Date: 27/10/2022
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
