@@ -116,6 +116,18 @@ router.get('/delete/:id', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
+  let bookId = req.params.id;
+  let { Title, Price, Author, Genre } = req.body;
+
+  // find all books in the books collection
+  book.findOneAndDelete({ _id: bookId }, (err, book) => {
+    if (err) {
+      return console.error(err);
+    }
+    else {
+      res.redirect('/books');
+    }
+  });
 });
 
 
