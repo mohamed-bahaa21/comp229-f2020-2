@@ -30,6 +30,7 @@ router.get('/add', (req, res, next) => {
    * ADD CODE HERE *
    *****************/
   res.render('books/details', {
+    actionRoute: '/books/add',
     title: "Add Book",
     books: {
       Title: "",
@@ -47,6 +48,16 @@ router.post('/add', (req, res, next) => {
   /*****************
    * ADD CODE HERE *
    *****************/
+  let { Title, Price, Author, Genre } = req.body;
+
+  let newBook = new book({
+    Title, Price, Author, Genre
+  })
+
+  newBook.save().then(function (err, result) {
+    res.redirect(`/books`);
+  })
+    .catch(err => console.log(err));
 
 });
 
